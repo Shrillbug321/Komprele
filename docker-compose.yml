@@ -1,0 +1,102 @@
+version: "3.7"
+services:      
+  shop:
+    build:
+      context: .
+      dockerfile: config/php_config
+    container_name: Komprele_shop
+    ports:
+      - 8082:80
+    working_dir: /var/www/html/
+    volumes:
+      - ./shop:/var/www/html/
+      - ./facade/:/var/www/html/facade/
+    networks:
+      - shop
+      
+  users:
+    build:
+      context: .
+      dockerfile: config/php_config
+    container_name: Komprele_users
+    ports:
+      - 8083:80
+    working_dir: /var/www/html/
+    volumes:
+      - ./users/:/var/www/html/
+      - ./facade/:/var/www/html/facade
+    networks:
+      - shop
+      
+  orders:
+    build:
+      context: .
+      dockerfile: config/php_config
+    container_name: Komprele_orders
+    ports:
+      - 8084:80
+    working_dir: /var/www/html/
+    volumes:
+      - ./orders/:/var/www/html/
+      - ./facade/:/var/www/html/facade
+    networks:
+      - shop
+    stdin_open: true
+    tty: true
+    
+  admins:
+    build:
+      context: .
+      dockerfile: config/php_config
+    container_name: Komprele_admins
+    ports:
+      - 8085:80
+    working_dir: /var/www/html/
+    volumes:
+      - ./admins/:/var/www/html/
+      - ./facade/:/var/www/html/facade
+    networks:
+      - shop
+      
+  db:
+    image: mysql
+    container_name: Komprele_database
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: exemplar
+      MYSQL_DATABASE: shop
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - shop
+     
+  adminer:
+    image: adminer
+    container_name: Komprele_adminer
+    restart: always
+    ports:
+      - 8101:8080
+    networks:
+      - shop
+      
+  magazine:
+    build:
+      context: .
+      dockerfile: config/ftp_config
+    container_name: Komprele_magazine
+    ports:
+      - 8102:80
+    working_dir: /home/admin
+    volumes:
+      - ./magazine/:/home/admin
+    networks:
+      - shop
+    privileged: true
+      
+volumes:
+  mysql-data:
+ 
+networks:
+  shop:
+    external: true

@@ -1,0 +1,203 @@
+html
+{
+	background-color: orange;
+	font-family: Verdana;
+}
+
+body
+{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+
+a
+{
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin-bottom: 5px;
+}
+
+p
+{
+	margin: 0px;
+	margin-bottom: 5px;
+}
+
+#header
+{
+	padding: 20px;    
+    padding-bottom: 10px;
+	border-bottom: 3px solid orange;
+}
+
+#site_name
+{
+	margin: 0;
+}
+
+.button
+{
+	display: block;
+	width: 130px;
+	float: left;
+	margin: 5px;
+	text-align: center;
+	border-bottom-width: 0px;
+	border-bottom-color: black;
+	border-bottom-style: solid;
+}
+
+
+@keyframes underline_anim
+{
+	0% {border-bottom-width: 0px}
+	100% {border-bottom-width: 2px}
+}
+
+
+.button:hover
+{
+	animation: underline_anim 0.08s linear 1;
+	animation-fill-mode: forwards;
+}
+
+.button a
+{
+	justify: center;
+}
+
+#content
+{
+	padding: 20px;
+}
+
+.small_picture
+{
+	display: block;
+	float: left;
+	width: 9%;
+	margin: 10px;
+	padding: 5px;
+	border: 3px gray solid;
+}
+
+.small_picture > img
+{
+	width: 100%;
+}
+
+
+#item_name
+{
+	margin: 10px 0px;
+}
+
+#picture
+{
+	display: block;
+	float: left;
+	width: 15%;
+	margin: 20px;
+	padding: 20px;
+	border: 3px gray solid;
+}
+
+#picture > img
+{
+	width: 100%;
+}
+
+#item_box
+{
+	float: left;
+	width: 50%;
+	margin: 20px;
+	margin-left: 0;
+}
+
+.item_data
+{
+	margin-bottom: 5px;
+}
+
+#description
+{
+	float: left;
+}
+
+#cart_box
+{
+	float: right;
+	margin-right: 20px;
+	padding: 15px;
+	border: 3px gray solid;
+}
+
+#cart_box input
+{
+	width: 45px;
+}
+
+#footer
+{
+	margin-top: 5px;
+	padding: 8px;
+	border: 3px solid orange;
+}
+
+.form_message
+{
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.form_message > a
+{
+	display: inline;
+}
+
+.form
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+}
+
+.form input
+{
+	margin: 8px 0px;
+}
+
+.click_here
+{
+	text-decoration: underline;
+	display: inline;
+}
+
+table
+{
+	border-collapse: collapse;
+}
+
+td
+{
+	border: solid 2px black;
+	padding: 6px
+}
+
+.order_details td
+{
+	border: solid 2px black;
+	border-top: solid 0px black;
+	padding: 6px
+}
+
+.add_pieces
+{
+	width: 50px;
+	float: left;
+	margin-right: 10px;
+}

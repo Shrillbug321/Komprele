@@ -1,0 +1,1 @@
+<?php	function user_id_decode($user_id)	{		$user_id = hex2bin($user_id);		$user_id = convert_uudecode($user_id);		return $user_id;	}?>

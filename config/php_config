@@ -1,0 +1,8 @@
+FROM php:7.4-apache
+RUN docker-php-ext-install mysqli
+RUN a2enmod rewrite
+RUN a2enmod ssl
+RUN apt-get update
+RUN apt-get install apache2 openssl
+RUN apt-get install nano
+RUN mkdir /etc/apache2/certificate
